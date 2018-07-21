@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+  alert("Загадайте число от 0 до 100 включительно в уме, я его сейчас отгадаю.");
+  let min = 0;
+  let max = 100;
+  let count = 0;
+
+  while (true) {
+    count++;
+
+    let generatedNumber = parseInt(Math.random() * (max - min + 1)) + min;
+
+    let str = "Думаю ты загадал " + generatedNumber + ". Это так?\n" +
+      "-1 - Если ты сдаешься ;)\n" +
+      "1 - Число отгадано.\n" +
+      "2 - Нет, мое число больше.\n" +
+      "3 - Нет, мое число меньше.";
+
+    let answer = +prompt(str);
+
+    if (answer == -1) {
+      alert("Хехех, пока.");
+      break;
+    } else if (answer == 1) {
+      alert("А я хорош! Отгадал с " + count + " попытки!");
+      break;
+    } else if (answer == 2) {
+      alert("Больше говоришь...");
+      min = generatedNumber + 1;
+    } else if (answer == 3) {
+      alert("Число поменьше... Хм...");
+      max = generatedNumber - 1;
+    }
+  }
+</script>
